@@ -1,5 +1,11 @@
-cd /home/roocell/vercel-ddns || exit 1
+#!/usr/bin/env bash
+set -euo pipefail
 
-# run using venv python, load .env via python-dotenv in your script
-./.venv/bin/python vercel_ddns.py --once >> ddns.log 2>&1
+BASE="/home/roocell/code/vercel_ddns"
+LOGDIR="$BASE/logs"
+mkdir -p "$LOGDIR"
 
+cd "$BASE"
+
+# Use venv python explicitly
+"$BASE/.venv/bin/python" "$BASE/vercel_ddns.py" --once --verbose >> "$LOGDIR/ddns.log" 2>&1

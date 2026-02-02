@@ -41,7 +41,8 @@ TARGET_NAMES = ["", "3dtest", "supabase", "3d", "coolify"]
 
 
 def eprint(*args: Any) -> None:
-    print(*args, file=sys.stderr)
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{ts}]", *args, file=sys.stderr)
 
 
 def getenv_required(key: str) -> str:
